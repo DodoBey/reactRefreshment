@@ -1,0 +1,23 @@
+.formMain {
+  background-color: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.formMain button {
+  background-color: rgb(70, 25, 70);
+  color: white;
+  margin-top: 10px;
+}
+
+.formMain button:hover {
+  background-color: rgb(117, 28, 117);
+}
