@@ -4,18 +4,25 @@ import styles from './AddUser.module.css'
 const AddUser = (props) => {
     const [userName, setUserName] = useState("")
     const [age, setAge] = useState("")
-    const [error, setError] = useState("")
+    const [error, setError] = useState()
+    const [errorTitle, setErrorTitle] = useState()
 
 
     const addUserHandler = (e) => {
         e.preventDefault();
 
-        if (!userName.length > 0 || !age.length > 0) {
-            return setError("Username and Age cannot be empty!")
+        if (!userName.trim().length > 0 || !age.trim().length > 0) {
+            return (
+                setErrorTitle("Invalid Input!"),
+                setError("Username and Age cannot be empty!")
+            )
         }
 
-        if (age < 0) {
-            return setError("Age must be positive number!")
+        if (+age < 0) {
+            return (
+                setErrorTitle("Invalid Age!"),
+                setError("Age must be positive number!")
+            )
         }
         const useData = {
             username: userName,
@@ -25,14 +32,16 @@ const AddUser = (props) => {
         props.getUserData(useData)
         setUserName("")
         setAge("")
-        setError("")
     }
 
-    console.log(error)
+    const errorHandler = () => {
+        setError();
+        setErrorTitle();
+    }
 
     return (
         <>
-            {error.length > 0 && <Modal error={error} />}
+            {error && <Modal title={errorTitle} message={error} onErrorHandler={errorHandler} />}
             <form onSubmit={addUserHandler} className={styles.formMain}>
                 <div className={styles.inputs}>
                     <label>Username</label>
