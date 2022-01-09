@@ -13,11 +13,11 @@
 }
 
 .formMain button {
-  background-color: rgb(70, 25, 70);
+  background-color: rgb(126, 57, 126);
   color: white;
   margin-top: 10px;
 }
 
 .formMain button:hover {
-  background-color: rgb(117, 28, 117);
+  background-color: rgb(95, 63, 95);
 }
