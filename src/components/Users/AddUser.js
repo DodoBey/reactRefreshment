@@ -43,6 +43,7 @@ const AddUser = (props) => {
         <>
             {error && <Modal title={errorTitle} message={error} onErrorHandler={errorHandler} />}
             <form onSubmit={addUserHandler} className={styles.formMain}>
+                <h1>Add User</h1>
                 <div className={styles.inputs}>
                     <label>Username</label>
                     <input type="text" value={userName} onChange={e => setUserName(e.target.value)} />
